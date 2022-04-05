@@ -1,0 +1,7 @@
+<brc-notification-list [notification_columns]="totalColumns" [notification_dataSource]="notification_dataSource"
+  [notification_showRowSelection]="notification_showRowSelection"
+  [notification_recordsPerPage]="notification_recordsPerPage" [notification_totalRecords]="notification_totalRecords"
+  [dataSelect]="dataEvent" (rowClicked)="rowClicked($event)" (rowsSelected)="rowsSelected($event)"
+  (sort)="pageSort($event)" (onPageChange)="onPageChange($event)" (textSearch)="textSearch($event)"
+  (categorySelected)="categorySelected($event)" (statusFilter)="statusFilter($event)" (resetPage)="resetPage()">
+</brc-notification-list>

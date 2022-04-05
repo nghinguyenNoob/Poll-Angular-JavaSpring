@@ -1,0 +1,22 @@
+<label class="pure-material-checkbox">
+  <input
+    #inputEl
+    type="checkbox"
+    [name]="label"
+    [value]="valueField"
+    [(ngModel)]="isChecked"
+    (change)="onChange(inputEl.checked)"
+    *ngIf="isChecked"
+    checked
+  />
+  <input
+    #inputEl
+    type="checkbox"
+    [name]="label"
+    [value]="valueField"
+    [(ngModel)]="isChecked"
+    (change)="onChange(inputEl.checked)"
+    *ngIf="!isChecked"
+  />
+  <span class="lbl-txt" *ngIf="label">{{ label }}</span>
+</label>

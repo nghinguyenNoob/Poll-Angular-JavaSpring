@@ -1,0 +1,11 @@
+<div class="pop-up-notification" #notification [@flyInOut]="'in'" *ngIf="temp">
+  <h3 class="category-notification-style">
+    <mat-icon matBadgeColor="warn" color="primary">notifications</mat-icon> {{reminder.categoryName}}
+  </h3>
+  <p class="notification-title">{{getValueNotification()}}</p>
+  <p><a class="notification-description" (click)="readDetailNotification()">View detail</a></p>
+  <div class="button-area">
+    <button mat-raised-button color="primary" (click)="markedReaded()">Readed</button>
+    <button mat-raised-button color="basic" (click)="cancelNotification()">Cancel</button>
+  </div>
+</div>

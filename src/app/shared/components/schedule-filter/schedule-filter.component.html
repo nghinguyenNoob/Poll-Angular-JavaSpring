@@ -1,0 +1,108 @@
+<div class="filter-container">
+  <form class="width_100">
+    <div
+      class="search"
+      style="width: 99%; margin-bottom: 20px; padding-top: 20px;"
+    >
+      <brc-search
+        [placeholder]="placeholderFilterSchedule.placeholderSearch"
+        [searchText]="valueFilterSchedule.valueSearch"
+        (textSearch)="textSearch($event)"
+        style="width: 100%;"
+      ></brc-search>
+    </div>
+    <!-- <div class="select" style="width: 100%;">
+      <div class="importance">
+        <brc-label
+          [label]="labelScheduleFilter.labelImportance"
+          class="filter-label"
+        ></brc-label>
+        <brc-app-select
+          [data]="dataImportance"
+          [label]="placeholderFilterSchedule.titleImportance"
+          [default]="valueFilterSchedule.valueImportance"
+          (getValue)="getValueImportance($event)"
+        ></brc-app-select>
+      </div>
+      <div class="category">
+        <brc-label
+          [label]="labelScheduleFilter.labelCategory"
+          class="filter-label"
+        ></brc-label>
+        <brc-select-multiple
+          [values]="dataCategory"
+          [label]="placeholderFilterSchedule.titleCategory"
+          (outputSelected)="outputSelected($event)"
+          style="width: 100%;"
+        >
+        </brc-select-multiple>
+      </div>
+    </div> -->
+    <div class="date-time" style="width: 100%;">
+      <div class="date" style="width: 100%;">
+        <brc-label
+          [label]="labelScheduleFilter.labelFromDate"
+          class="filter-label"
+          style="width: 100%; margin-bottom: 10px;"
+        ></brc-label>
+        <brc-datetime-picker
+          (getDay)="getFromDate($event)"
+          (getHour)="getFromHour($event)"
+          (getMinute)="getFromMinute($event)"
+        ></brc-datetime-picker>
+      </div>
+      <div class="date">
+        <brc-label
+          [label]="labelScheduleFilter.labelToDate"
+          class="filter-label"
+          style="width: 100%; margin-bottom: 10px;"
+        ></brc-label>
+        <brc-datetime-picker
+          (getDay)="getToDate($event)"
+          (getHour)="getToHour($event)"
+          (getMinute)="getToMinute($event)"
+        ></brc-datetime-picker>
+      </div>
+      <div class="select" style="width: 100%;">
+      <div class="importance">
+        <brc-label
+          [label]="labelScheduleFilter.labelImportance"
+          class="filter-label"
+        ></brc-label>
+        <brc-app-select
+          [data]="dataImportance"
+          [label]="placeholderFilterSchedule.titleImportance"
+          [default]="valueFilterSchedule.valueImportance"
+          (getValue)="getValueImportance($event)"
+        ></brc-app-select>
+      </div>
+      <div class="category">
+        <brc-label
+          [label]="labelScheduleFilter.labelCategory"
+          class="filter-label"
+        ></brc-label>
+        <brc-select-multiple
+          [values]="dataCategory"
+          [label]="placeholderFilterSchedule.titleCategory"
+          (outputSelected)="outputSelected($event)"
+          style="width: 100%;"
+        >
+        </brc-select-multiple>
+      </div>
+    </div>
+    </div>
+    <br />
+    <div class="button">
+      <div class="row-button" style="width: 100%; margin: auto;">
+        <brc-button
+          [configButton]="buttonFilterSchedule.buttonSubmit"
+          (click)="onSubmit()"
+        ></brc-button>
+        <brc-button
+          [configButton]="buttonFilterSchedule.buttonReset"
+          (click)="clear()"
+        ></brc-button>
+      </div>
+    </div>
+  </form>
+</div>

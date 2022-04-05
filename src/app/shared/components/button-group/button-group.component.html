@@ -1,0 +1,5 @@
+<mat-button-toggle-group data-test="submit-action" [value]="value" (change)="change($event)">
+  <mat-button-toggle *ngFor="let option of buttonGroup" [value]="option.value">
+    {{ option.displayValue }}
+  </mat-button-toggle>
+</mat-button-toggle-group>

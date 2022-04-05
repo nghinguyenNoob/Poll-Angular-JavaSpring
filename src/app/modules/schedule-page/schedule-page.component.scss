@@ -1,0 +1,47 @@
+.container {
+  overflow-y: scroll;
+  scrollbar-width: none; /* Firefox */
+  -ms-overflow-style: none; /* Internet Explorer 10+ */
+}
+.container::-webkit-scrollbar {
+  /* WebKit */
+  width: 0;
+  height: 0;
+}
+.event-today {
+  padding: 10px;
+  h3 {
+    font-weight: 600;
+  }
+}
+.calendar-small {
+  size: 30px;
+  margin-top: 0px;
+  margin-bottom: 2em;
+}
+
+html,
+body {
+  overflow: hidden;
+}
+
+::ng-deep {
+  ng-scrollbar.scroll-event {
+    --scrollbar-size: 8px;
+    --scrollbar-thumb-color: gray;
+    --scrollbar-hover-size: 12px;
+    --scrollbar-track-color: rgba(0, 0, 0, 0.05);
+    --scrollbar-border-radius: 10px;
+
+    height: 870px;
+    max-height: 870px;
+  }
+}
+
+::-webkit-scrollbar {
+  display: none !important;
+}
+::ng-deep .mat-checkbox-checked .mat-checkbox-background,
+::ng-deep .mat-checkbox-indeterminate .mat-checkbox-background {
+  background-color: #3f51b5 !important;
+}

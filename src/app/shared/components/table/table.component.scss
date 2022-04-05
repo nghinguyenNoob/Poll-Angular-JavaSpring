@@ -1,0 +1,113 @@
+.table-container {
+  width: 100% !important;
+  border-collapse: collapse;
+
+  table-layout: fixed;
+}
+
+.table-row {
+  width: 100% !important;
+  border-top: 1px solid #f0f0f0;
+  border-bottom: 1px solid #f0f0f0;
+
+}
+
+.table-row:hover {
+  background: #fafafa;
+}
+
+.selected {
+  background: #d2ddf7;
+}
+
+.selected:hover {
+  background: #d2ddf7;
+}
+
+.table-header {
+  width: 100%;
+  // background: #f0f0f0;
+  border-bottom: 1px solid #d4d4d4;
+
+}
+
+.table-cell-header {
+  text-align: left;
+  cursor: default;
+
+}
+
+.table-cell {
+  text-align: left;
+  padding: 1em 1.2em;
+  min-width: 100px !important;
+
+
+}
+
+.checkbox-cell {
+  width: 13%;
+}
+
+.table-cell-entry {
+  // width: 100%;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  padding-right: 10px;
+}
+
+.thead-title {
+
+  -moz-user-select: none;
+  /* Firefox */
+  -ms-user-select: none;
+  /* Internet Explorer */
+  -khtml-user-select: none;
+  /* KHTML browsers (e.g. Konqueror) */
+  -webkit-user-select: none;
+  /* Chrome, Safari, and Opera */
+  -webkit-touch-callout: none;
+  /* Disable Android and iOS callouts*/
+}
+
+.sort-column {
+  position: absolute;
+  margin-left: 3px;
+}
+
+.sort-column .opacity-02 {
+  opacity: 0.2;
+}
+
+
+.sort-column .mat-icon {
+  font-size: 16px;
+  cursor: default;
+  width: 10px;
+  height: 16px;
+}
+
+// na-Khanh
+.btn-delete{
+  margin-left: 2%;
+}
+
+// Start nc_nghi
+.btn-edit-mat{
+  margin-right: 10px;
+  border: none;
+  border-radius: 5px;
+  background-color: darkgray;
+}
+
+.btn-delete-mat{
+  border: none;
+  border-radius: 5px;
+  background-color: darkgray;
+}
+//end nc_nghi
+
+button {
+  cursor: pointer;
+}

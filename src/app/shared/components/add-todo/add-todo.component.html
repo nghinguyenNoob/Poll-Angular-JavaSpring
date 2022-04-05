@@ -1,0 +1,81 @@
+<div class="container">
+<div class="header">
+  <brc-label [label]="labelHeader"></brc-label>
+</div>
+<form class="content" name="form" #f="ngForm">
+  <mat-grid-list cols="4" rowHeight="100px">
+    <mat-grid-tile [colspan]="colSpan" [rowspan]="1" class="form-group">
+      <brc-label [label]="LabelTodoName" class="labelTodoName"></brc-label>
+      <!-- <div *ngIf="f.submitted && todoName.invalid" class="invalid-feedback">
+        <div *ngIf="todoName.errors.required">Todo Name is required</div>
+      </div> -->
+      <mat-form-field class="inputTodoName">
+        <mat-label *ngIf="f.submitted && todoName.invalid">Todo Name is required</mat-label>
+        <mat-label *ngIf="!f.submitted || todoName.valid">Todo Name</mat-label>
+        <input
+          matInput
+          placeholder="Todo Name"
+          (ngModel)="todoName"
+          name="todoName"
+          [value]="todoName"
+          #todoName="ngModel"
+          [ngClass]="{ 'is-invalid': f.submitted && todoName.invalid }"
+          (ngModelChange)="changeValueTodo($event)"
+          required
+        />
+      </mat-form-field>
+
+    </mat-grid-tile>
+    <mat-grid-tile [colspan]="colSpan">
+      <brc-label [label]="LabelCategory" class="label"></brc-label>
+      <brc-app-select
+        [data]="CategoryArray"
+        [label]="labelCategory"
+        class="input"
+        (getValue)="setCategory($event)"
+      >
+      </brc-app-select>
+      <mat-icon aria-hidden="false" class="icon">add</mat-icon>
+    </mat-grid-tile>
+    <mat-grid-tile [colspan]="colSpan">
+      <brc-label [label]="LabelDatePicker" class="label"></brc-label>
+      <brc-date-picker class="inputDate" 
+          (getDate) = "getToDate($event)"
+      ></brc-date-picker>
+      <mat-icon aria-hidden="false" class="icon"></mat-icon>
+    </mat-grid-tile>
+    <mat-grid-tile [colspan]="colSpan">
+      <brc-label [label]="LabelImportance" class="label"></brc-label>
+      <brc-app-select
+        [data]="ImportanceArray"
+        [label]="labelImportance"
+        class="input"
+        (getValue)="setImportant($event)"
+      >
+      </brc-app-select>
+      <mat-icon aria-hidden="false" class="icon"></mat-icon>
+    </mat-grid-tile>
+    <mat-grid-tile [colspan]="4" [rowspan]="2" layout-align="center center">
+      <brc-label [label]="LabelDescription" class="label"></brc-label>
+      <brc-textarea
+        [placeholder]="placeholder"
+        class="text-area"
+        (value)="setDescription($event)"
+      ></brc-textarea>
+      <mat-icon aria-hidden="false" class="icon"></mat-icon>
+    </mat-grid-tile>
+    <mat-grid-tile [colspan]="4">
+      <brc-button
+        [configButton]="configButtonAdd"
+        class="button"
+        (click)="onsubmit()"
+      ></brc-button>
+      <brc-button
+        [configButton]="configButtonCancel"
+        class="button"
+        (click)="cancel()"
+      ></brc-button>
+    </mat-grid-tile>
+  </mat-grid-list>
+</form>
+</div>

@@ -1,0 +1,83 @@
+mat-grid-list{
+    border: solid 1px lightgray;
+}
+mat-grid-tile{
+    overflow: unset !important;
+}
+.container {
+    padding: 1%;
+  }
+.header {
+    padding: 10px;
+    margin: 10px;
+    margin-bottom: 40px;
+}
+.input{
+    margin: 10px 0px 0px 20px;
+    width: 50%;
+}
+.inputTodoName{
+    margin: 10px 0px 0px 20px;
+    width: 50%;
+}
+.labelTodoName{
+    margin : 15px 0 0px -8px;
+    width : 8em;
+    font-weight : bold;
+}
+.label
+{
+    margin : 15px 0 0px 20px;
+    width : 8em;
+    font-weight : bold;
+}
+input:focus , .text-area:focus {
+    border: none;
+    box-shadow: none;
+    outline: none;
+}
+.text-area {
+    width: 75%;
+    height: 100%;
+    margin : 50px 0px 0px 20px
+}
+.button
+{
+    margin: 20px 50px 0px 50px;
+}
+.icon
+{
+    cursor: pointer;
+}
+@media (max-width:834px)
+{
+    .input{
+        width:50%
+    }
+    .label{
+        width: 25%;
+        margin : 0px 0 0 10px;
+    }
+    .labelTodoName{
+        width: 25%;
+        margin : 0px 0 0 -10.5px;
+    }
+    .text-area
+    {
+        width: 50%;
+        margin : 50px 0px 0 20px
+    }
+}
+@media (max-width:325)
+{
+    .button{
+        margin: 20px 0px 0px 0px!important;
+    }
+}
+.inputDate{
+    margin: 10px 0px 0px 20px;
+    width: 50%;
+    display: flex;
+    flex-wrap: wrap;
+  }
+

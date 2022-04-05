@@ -1,0 +1,42 @@
+p b {
+  font-size: 16px;
+}
+
+.color-medium {
+  background-color: white;
+  padding: 20px;
+}
+
+.color-medium .color-medium-p {
+  border-radius: 10px;
+  border: 1px solid rgb(247, 247, 250);
+  background-color: rgb(247, 247, 250);
+  padding: 10px;
+}
+
+@media (max-width: 1000px) {
+  .container {
+    max-width: 100% !important;
+    // margin-left: auto;
+    margin-left: 0px;
+  }
+}
+@media (min-width: 1500px) {
+  .container {
+    max-width: 70% !important;
+    margin: auto;
+  }
+}
+
+.title-todo {
+  text-align: center;
+  font-weight: bold;
+  margin: 20px 20px;
+}
+.back-todo a {
+  padding-left: 20px;
+  color: #0f78da;
+  font-size: 14px;
+  text-decoration: none;
+  cursor: pointer;
+}

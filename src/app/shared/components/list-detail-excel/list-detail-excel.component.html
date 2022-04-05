@@ -1,0 +1,20 @@
+<brc-label [label]="labelExcel" class="header"></brc-label>
+
+<div style="margin: auto; display: flex; justify-content: flex-end;">
+    <button mat-raised-button color="primary" (click)="onClickBtnAdd()">
+      <mat-icon>add</mat-icon>{{ configButtonAdd.btnAdd }}
+    </button>
+  </div>
+
+<brc-table [columns]="list_detail_excel_columns" [dataSource]="list_detail_excel_dataSource"
+[showRowSelection]="list_detail_excel_showRowSelection" [showRowAction]="showRowAction" (rowClicked)="handleClickRow($event)"
+(rowsSelected)="handleSelectRow($event)" (sort)="handlesort($event)">
+</brc-table> 
+
+
+<brc-mat-paginator
+[total]="todoTotalRecords"
+[pageSize]="todoRecordsPerPage"
+[pageIndex]="todoPageIndex"
+(onPageChange)="onPageEvent($event)"
+></brc-mat-paginator> 

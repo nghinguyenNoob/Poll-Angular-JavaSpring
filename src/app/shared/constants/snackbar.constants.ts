@@ -1,0 +1,19 @@
+import { MatSnackBarConfig } from '@angular/material/snack-bar';
+
+export const snackbarINFO: MatSnackBarConfig = {
+  verticalPosition: 'top',
+  horizontalPosition: 'right',
+  panelClass: 'sanckbar-info',
+};
+
+export const snackbarERROR: MatSnackBarConfig = {
+  verticalPosition: 'top',
+  horizontalPosition: 'right',
+  panelClass: 'sanckbar-error',
+};
+
+export const snackbarSUCCESS: MatSnackBarConfig = {
+  verticalPosition: 'bottom',
+  horizontalPosition: 'center',
+  panelClass: 'sanckbar-success',
+};

@@ -1,0 +1,54 @@
+<div class="container ">
+  <div [fxFlex]="sizeFlexFilter" *ngIf="sizeFlexFilter!=0" class="filter-notificaton">
+    <brc-filter-notification [dataSelect]="dataSelect" [labelSelect]="labelSelect" [fxFlex]="100"
+      (categorySelected)="getValueCategory($event)" (statusFilter)="getValueStatus($event)" class="filter-notification"
+      [events]="eventsSubject.asObservable()">
+    </brc-filter-notification>
+  </div>
+
+  <div [fxFlex]="100-sizeFlexFilter" class="notification-list">
+    <div fxLayout="column">
+      <mat-toolbar [fxFlex]="20">
+        <mat-toolbar-row class="toggleMenu">
+          <button fxFlex="10" fxLayoutAlign="center space-around" mat-icon-button class="example-icon"
+            aria-label="Example icon-button with menu icon" *ngIf="filterButton">
+            <mat-icon (click)="changeShowToolbar()">menu</mat-icon>
+          </button>
+          <h1 [style.font-size.px]="fontSizeTitle" [fxFlex]="70" class="title-page">
+            <b (click)="clickResetPage()" class="title-content">{{ configNotificationList }}</b>
+          </h1>
+          <brc-search [placeholder]="searchPlaceholder" [searchText]="searchText" (textSearch)="handleSearch($event)"
+            [eventResetSearch]="eventSearch.asObservable()" fxFlex class="search" [fxFlex]="30"
+            *ngIf="sizeFlexFilter!=0">
+          </brc-search>
+        </mat-toolbar-row>
+      </mat-toolbar>
+      <mat-toolbar [fxFlex]="80" *ngIf='showToolbar' class="navbar">
+        <mat-toolbar-row class="toolbar" style="max-height: 100%;">
+          <brc-filter-notification [dataSelect]="dataSelect" [labelSelect]="labelSelect"
+            [events]="eventsSubject.asObservable()" fxFlex="100" (categorySelected)="getValueCategory($event)"
+            (statusFilter)="getValueStatus($event)">
+          </brc-filter-notification>
+        </mat-toolbar-row>
+        <mat-toolbar-row class="toolbar" style="max-height: 100%;">
+          <brc-search [placeholder]="searchPlaceholder" [searchText]="searchText"
+            [eventResetSearch]="eventSearch.asObservable()" (textSearch)="handleSearch($event)" fxFlex class="search"
+            [fxFlex]="100">
+          </brc-search>
+        </mat-toolbar-row>
+      </mat-toolbar>
+    </div>
+    <div fxLayout="column">
+      <brc-table [columns]="notification_columns" [dataSource]="notification_dataSource"
+        [showRowSelection]="notification_showRowSelection" [eventResetSort]="eventPagination.asObservable()"
+        (rowClicked)="handleClickRow($event)" (rowsSelected)="handleSelectRow($event)" (sort)="handlesort($event)">
+      </brc-table>
+    </div>
+    <div class="pagination-list" fxLayout="column" *ngIf=" notification_totalRecords !== 0">
+      <brc-pagination [totalRecords]="notification_totalRecords" [recordsPerPage]="notification_recordsPerPage"
+        [eventResetPagination]="eventPagination.asObservable()" (onPageChange)="handleonPageChange($event)"
+        fxLayout="column">
+      </brc-pagination>
+    </div>
+  </div>
+</div>

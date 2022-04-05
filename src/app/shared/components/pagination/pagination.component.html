@@ -1,0 +1,24 @@
+<div class="pagination" fxLayout="column" fxLayoutAlign="space-around center">
+  <ul fxFlex="100" fxLayoutAlign="center space-around">
+    <li class="page-item" (click)="onClickArrow(activePage - 1 )">
+      <a class="page-link" href="javascript:void(0);">
+        <mat-icon>
+          keyboard_arrow_left
+        </mat-icon>
+      </a>
+    </li>
+    <li class="page-item page-number" *ngFor="let item of pages ; index as i" fxLayoutAlign="center space-around">
+      <a class="page-link" [ngClass]="{'active': activePage === item}" (click)="onClickPage(item , i)"
+        href="javascript:void(0);">
+        {{item}}
+      </a>
+    </li>
+    <li class="page-item">
+      <a class="page-link" (click)="onClickArrow(activePage + 1)" href="javascript:void(0);">
+        <mat-icon>
+          keyboard_arrow_right
+        </mat-icon>
+      </a>
+    </li>
+  </ul>
+</div>

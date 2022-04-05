@@ -1,0 +1,33 @@
+.example-spacer {
+    flex: 1 1 auto;
+}
+
+// .toggleMenu{
+//     display: none;
+// }
+
+.toggleMenu button{
+    float: left;
+}
+
+// @media only screen and (max-width: 499px) {
+//     .toggleMenu{
+//         display: block;
+//     }
+//     .menu{
+//         display: none;
+//     }
+// }
+.icon-notification{
+  margin-top: 5px;
+  margin-right: 20px;
+
+}
+.icon-notification a {
+
+  color: whitesmoke;
+}
+span.icon-notification.logout {
+  font-size: 16px;
+  cursor: pointer;;
+}

@@ -1,0 +1,83 @@
+<table class="table-container">
+    <tr class="table-header">
+        <th *ngIf="showRowSelection" class="table-cell table-cell-header checkbox-cell">
+            <mat-checkbox [color]="'primary'" (change)="$event ? toggleSelectionAll() : null" [checked]='isSelectedAll'>
+            </mat-checkbox>
+        </th>
+        <th *ngFor="let column of columns" class="table-cell table-cell-header" (click)="toggleSort(column.dataIndex)">
+            <span class="thead-title">
+                {{column.title}}
+                <span class="sort-column"
+                    *ngIf="sortMap.get(column.dataIndex) != null && sortMap.get(column.dataIndex) === 'desc'">
+                    <mat-icon class="opacity-02">north</mat-icon>
+                    <mat-icon>south</mat-icon>
+                </span>
+                <span class="sort-column"
+                    *ngIf="sortMap.get(column.dataIndex) && sortMap.get(column.dataIndex) === 'asc'">
+                    <mat-icon>north</mat-icon>
+                    <mat-icon class="opacity-02">south</mat-icon>
+                </span>
+                <span class="sort-column"
+                    *ngIf="sortMap.get(column.dataIndex) && sortMap.get(column.dataIndex) === 'none'">
+                    <mat-icon class="opacity-02">north</mat-icon>
+                    <mat-icon class="opacity-02">south</mat-icon>
+                </span>
+            </span>
+        </th>
+        <th *ngIf="showBtn" class="table-cell table-cell-header" style="text-align: center;">
+            Action
+        </th>
+    </tr>
+    <tr *ngFor="let row of dataSource" class="table-row" (click)="handlerClickRow(row)"
+        [class.selected]="selection.isSelected(row)">
+        <td *ngIf="showRowSelection" class="table-cell table-cell-header">
+            <mat-checkbox [color]="'primary'" (change)="$event ? toggleSelection(row) : null"
+                [checked]="selection.isSelected(row)"></mat-checkbox>
+        </td>
+        <td class="table-cell" *ngFor="let column of columns">
+            <!-- <div class="table-cell-entry" #tableCellMatTooltip> show all data-->
+                <div *ngIf="row[column.dataIndex][0]=='top'; else elseBlock1">
+                    <div *ngIf="row[column.dataIndex][1]" style="display: flex; flex-direction: row;">
+                        <mat-icon style="color:#FFCC00;" title="{{row[column.dataIndex][1].optionName}}">lens</mat-icon>
+                        <span style="margin: 4px 0 0 4px;">{{row[column.dataIndex][1].voteCount}}</span>
+                    </div>
+                    <div *ngIf="row[column.dataIndex][2]" style="display: flex; flex-direction: row;">
+                        <mat-icon style="color:#A1A2A3;" title="{{row[column.dataIndex][2].optionName}}">lens</mat-icon>
+                        <span style="margin: 4px 0 0 4px;">{{row[column.dataIndex][2].voteCount}}</span>
+                    </div>
+                    <div *ngIf="row[column.dataIndex][3]" style="display: flex; flex-direction: row;">
+                        <mat-icon style="color: #9C7A3C" title="{{row[column.dataIndex][3].optionName}}">lens</mat-icon>
+                        <span style="margin: 4px 0 0 4px;">{{row[column.dataIndex][3].voteCount}}</span>
+                    </div>
+                </div>
+                <ng-template #elseBlock1>
+                    <div *ngIf="showButtonSelection && row[column.dataIndex]=='action'; else elseBlock2">
+                        <button (click)="detailPoll(row)" class="btn-edit-mat"><mat-icon>edit</mat-icon></button>
+                        <button (click)="deletePoll(row)" class="btn-delete-mat"><mat-icon>delete</mat-icon></button>
+                    </div>
+                    <ng-template #elseBlock2>
+                        {{(row[column.dataIndex] !== null) ? row[column.dataIndex]: ""}}
+                    </ng-template>
+                </ng-template>
+            <!-- </div> -->
+        </td>
+        <td *ngIf="showBtn" class="table-cell" style="text-align: center;">
+            <div *ngIf="showBtnExcelTemplate">
+                <button (click)="handlerDetail(row)" mat-raised-button color="basic">Detail</button>
+                <button (click)="handlerDelete(row)" mat-raised-button color="basic" style="margin-left: 10px;">Delete</button>
+            </div>
+            <div *ngIf="showBtnExcelTemplateDetail">
+                <button (click)="handlerEditIcon(row)" mat-raised-button color="basic">
+                    <span class="material-icons">
+                        edit
+                    </span>
+                </button>
+                <button (click)="handlerDeleteIcon(row)" mat-raised-button color="basic" style="margin-left: 10px;">
+                    <span class="material-icons">
+                        delete
+                    </span>
+                </button>
+            </div>
+        </td>
+    </tr>
+</table>

@@ -1,0 +1,9 @@
+<div class="notification-icon">
+  <mat-icon
+    matBadge="{{ countNotification }}"
+    matBadgeColor="warn"
+    (click)="toggleBadgeVisibility()"
+    [matBadgeHidden]="hidden"
+    >notifications</mat-icon
+  >
+</div>

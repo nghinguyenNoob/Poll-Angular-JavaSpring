@@ -1,0 +1,13 @@
+<div class="result">
+  <h3 style="font-size: 17px;">Status</h3>
+  <section *ngFor="let ing of checkboxContent; let i = index">
+    <mat-checkbox
+      #checkbox
+      [(ngModel)]="ing.checked"
+      (change)="onChange(ing.checked,i)"
+      [color]="'primary'"
+    >
+      {{ ing.name }}
+    </mat-checkbox>
+  </section>
+</div>

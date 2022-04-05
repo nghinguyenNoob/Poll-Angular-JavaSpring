@@ -1,0 +1,12 @@
+<div class="content">
+<brc-add-todo
+  [CategoryArray]="dataCategory"
+  [ImportanceArray]="ImportanceArray"
+  [LabelDatePicker]="LabelDatePicker"
+  [configButtonAdd]="configButtonAdd"
+  [configButtonCancel]="configButtonCancel"
+  (addTodo)="onAddTodo($event)"
+  (cancelTodo)="cancelTodo($event)"
+>
+</brc-add-todo>
+</div>

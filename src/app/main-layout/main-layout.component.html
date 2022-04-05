@@ -1,0 +1,18 @@
+<div style="width: 100%;">
+  <brc-header
+    [menu]="menu"
+    (emitValueLink)="navigate($event)"
+    (emitValueNotification)="navigateNotification($event)"
+    [countNotification]="countNotification"
+  ></brc-header>
+  <brc-pop-up
+    [temp]="temp"
+    [reminder] = "reminder"
+    (getId)="onGetId($event)"
+    (markAsRead)="onMarkAsRead($event)"
+    (readDetail)="readDetailNotification($event)"
+    class="popup-notification"
+  >
+  </brc-pop-up>
+  <router-outlet></router-outlet>
+</div>

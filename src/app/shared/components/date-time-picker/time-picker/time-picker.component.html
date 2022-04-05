@@ -1,0 +1,31 @@
+<div class="form-timepicker" style="position: relative;" >
+
+    <div class="form" style="position: absolute; ">
+        <div class="time-input">
+            <input class="txtDate" [(ngModel)]="times" (click)='showed=!showed' [placeholder]="placeholder" [value]="time.hour+time.minute " (change)="getStringTime($event)">
+            <button class="btnShow" #hidepicker>
+                <mat-icon (click)="toggleMenu()">schedule</mat-icon>
+            </button>
+        </div>
+
+        <div class="picker-time "  style="z-index:3;position: relative;background-color: #f1f2f6; " [hidden]="!showed ">
+            <div class="picker-hours " #timepicker>
+                <ul>
+                    <li (click)="addHour(item) " (click)="getHours(item) " *ngFor="let item of hours ">{{item}}</li>
+                </ul>
+            </div>
+            <div class="picker-minutes " #hourpicker>
+                <ul>
+                    <li (click)="addMinute(item) " (click)="getMinutes(item) " (click)='showed=!showed' *ngFor="let item of minutes ">{{item}}</li>
+                </ul>
+                
+            </div>
+            <div class="control ">
+                <div class="now-time ">
+                    <button (click) = "addTimeNow()"  (click)="getTimeNowTest() ">now</button>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>

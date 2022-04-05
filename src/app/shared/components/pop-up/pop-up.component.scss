@@ -1,0 +1,48 @@
+.pop-up-notification {
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    max-width: 19vw;
+    min-width: 19vw;
+    padding: 0.5vw;
+    background-color: rgb(245, 245, 245);
+    padding-top: 0px;
+    
+}
+.pop-up-notification p {
+    padding: 0px;
+    margin: 0px;
+    
+}
+
+.pop-up-notification h2 {
+    padding-bottom: 8px;
+    margin-bottom: 0px;
+    margin-top: 8px;
+    
+}
+
+.mat-icon {
+    font-size: 30px;
+    padding-right: 10px;
+    
+}
+
+.button-area {
+    display: flex;
+    justify-content: space-between;
+    padding-top: 10px;
+    padding-bottom: 8px;
+    margin-bottom: 0px;
+}
+
+ .mat-raised-button{
+
+    font-family: sans-serif;
+    font-size: 15px !important;
+    line-height: 30px !important;
+}
+.notification-description{
+    text-overflow: ellipsis; 
+    white-space: nowrap; 
+    overflow: hidden;
+    color: rgb(14, 14, 116);
+}

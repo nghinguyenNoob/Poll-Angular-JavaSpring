@@ -1,0 +1,24 @@
+<div style="padding: 10px 0 0 20px;">
+    <a style="text-decoration: none; margin: 10px; font-size: medium; color: blue;" (click)="btnClickEmt()">Back to Calendar</a>
+</div>
+<brc-schedule-list
+    [buttonFilterSchedule]="buttonFilterSchedule"
+    [labelScheduleFilter]="labelScheduleFilter"
+    [placeholderFilterSchedule]="placeholderFilterSchedule"
+    [scheduleDataCategory]="scheduleDataCategory"
+    [scheduleDataImportance]="scheduleDataImportance"
+    [scheduleColumns]="scheduleColumns"
+    [scheduleDataSource]="scheduleDataSource"
+    [scheduleShowRowSelection]="scheduleShowRowSelection"
+    [scheduleTotalRecords]="scheduleTotalRecords"
+    [scheduleRecordsPerPage]="scheduleRecordsPerPage"
+    [schedulePageIndex]="schedulePageIndex"
+    [configScheduleList]="configScheduleList"
+    (valueFilter)="scheduleFilter($event)"
+    (rowClicked)="scheduleClick($event)"
+    (rowsSelected)="scheduleSelect($event)"
+    (sort)="scheduleSort($event)"
+    (btnAddSchedule)="scheduleAdd($event)"
+    (pageOnPageChange)="changePage($event)"
+>
+</brc-schedule-list>

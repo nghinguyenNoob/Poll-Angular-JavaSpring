@@ -1,0 +1,70 @@
+<mat-toolbar color="primary">
+  <mat-toolbar-row
+    style="display: flex; justify-content: space-between;"
+    class="menu"
+    *ngIf="toggleMenu"
+  >
+    <!-- <span style="color: #fff; font-weight: 400; font-size: larger; cursor: default;">Schedule Manager</span> -->
+    <ul
+      style="display: flex; justify-content: space-between; margin-left: -45px;"
+    >
+      <li *ngFor="let item of this.menu">
+        <brc-header-item
+          [tab]="item"
+          (emitLink)="emitLink($event)"
+        ></brc-header-item>
+      </li>
+    </ul>
+    <div style="display: flex;">
+      <span class="icon-notification"
+        ><brc-notification-icon
+          [countNotification]="countNotification"
+          (emitNotificationClick)="navigateNotification($event)"
+        ></brc-notification-icon
+      ></span>
+      <span class="icon-notification logout" (click)="clickLogout()"
+        >Logout</span
+      >
+    </div>
+  </mat-toolbar-row>
+
+  <mat-toolbar-row
+    style="padding: 10px; justify-content: space-between;"
+    *ngIf="!toggleMenu"
+    class="toggleMenu"
+  >
+    <!-- <span style="color: #fff; font-weight: 400; font-size: larger; cursor: default;">Schedule Manager</span> -->
+    <button
+      style="justify-content: space-between;"
+      (click)="showToggle = !showToggle"
+      mat-icon-button
+      class="example-icon"
+      aria-label="Example icon-button with menu icon"
+    >
+      <mat-icon>menu</mat-icon>
+    </button>
+    <div style="display: flex;">
+      <span class="icon-notification"
+        ><brc-notification-icon
+          [countNotification]="countNotification"
+          (emitNotificationClick)="navigateNotification($event)"
+        ></brc-notification-icon
+      ></span>
+      <span class="icon-notification logout" (click)="clickLogout()"
+        >Logout</span
+      >
+    </div>
+  </mat-toolbar-row>
+</mat-toolbar>
+
+<mat-toolbar color="primary" *ngIf="showToggle">
+  <mat-toolbar-row
+    *ngFor="let item of this.menu"
+    style="display: flex; justify-content: space-between;"
+  >
+    <brc-header-item
+      [tab]="item"
+      (emitLink)="emitLink($event)"
+    ></brc-header-item>
+  </mat-toolbar-row>
+</mat-toolbar>

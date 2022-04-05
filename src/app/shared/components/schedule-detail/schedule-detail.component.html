@@ -1,0 +1,71 @@
+<div
+  class="container"
+  fxLayout="row wrap"
+  fxLayoutAlign="center start"
+  style="font-size: 18px;"
+>
+  <div class="title" fxFlex="100" fxFlex.gt-md="100">
+    <mat-icon >today</mat-icon>
+    <p fxLayoutAlign="start center">
+      {{ scheduleDetail?.scheduleCategoryName }}: {{ scheduleDetail?.title }}
+    </p>
+  </div>
+  <div class="registration" fxFlex="100" fxFlex.gt-md="100">
+    <p fxFlex="10" fxFlex.gt-md="25" fxLayoutAlign="start center" class="registrationTitle">
+      Registration information:
+    </p>
+    <mat-icon >person</mat-icon>
+    <p  fxLayoutAlign="start center">
+      {{ scheduleDetail?.createByFullName }} | {{ scheduleDetail?.created }}
+    </p>
+  </div>
+
+  <!-- time repeat -->
+  <div class="form-info" fxFlex="100" fxFlex.gt-md="50" *ngIf="!typeCheck">
+    <p class="label" fxFlex="15" fxFlex.gt-md="30" fxLayoutAlign="start center">
+      Schedule time:
+    </p>
+    <p>
+      {{ scheduleTimeRepeat }} at
+      {{ scheduleDetail?.timeStartRepeat }}-{{ scheduleDetail?.timeDueRepeat }}
+    </p>
+  </div>
+  <!-- end time repeat -->
+  <div class="form-info" fxFlex="100" fxFlex.gt-md="50" *ngIf="!typeCheck">
+    <p class="label" fxFlex="15" fxFlex.gt-md="30" fxLayoutAlign="start center">
+      Experience at:
+    </p>
+    <p>{{ scheduleDetail?.dueDate }}</p>
+  </div>
+  <div class="form-info" fxFlex="100" fxFlex.gt-md="100" *ngIf="typeCheck">
+    <p class="label" fxFlex="15" fxLayoutAlign="start center">Schedule Time:</p>
+    <p>{{ scheduleTime }}</p>
+  </div>
+  <!-- title -->
+  <div class="form-info" fxFlex="100" fxFlex.gt-md="100">
+    <p class="label" fxFlex="15" fxLayoutAlign="start center">Schedule name:</p>
+    <p>{{ scheduleDetail?.title }}</p>
+  </div>
+  <!-- localtion -->
+  <div class="form-info" fxFlex="100" fxFlex.gt-md="100">
+    <p class="label" fxFlex="15" fxLayoutAlign="start center">Location:</p>
+    <p>{{ scheduleDetail?.place }}</p>
+  </div>
+  <!-- type schedule -->
+  <div class="form-info" fxFlex="100" fxFlex.gt-md="100">
+    <p class="label" fxFlex="15" fxLayoutAlign="start center">Importance:</p>
+    <p>{{ scheduleDetail?.important }}</p>
+  </div>
+  <div class="form-info" fxFlex="100">
+    <p class="label" fxFlex="15" fxLayoutAlign="start center">Participants:</p>
+    <p class="child">{{ scheduleDetail?.userNames }}</p>
+  </div>
+  <div class="form-info" fxFlex="100">
+    <p class="label" fxFlex="15" fxLayoutAlign="start center">Equipment:</p>
+    <p class="child">{{ scheduleDetail?.equipmentNames }}</p>
+  </div>
+  <div class="form-info" fxFlex="100">
+    <p class="label" fxFlex="15" fxLayoutAlign="start center">Description:</p>
+    <p>{{ scheduleDetail?.description }}</p>
+  </div>
+</div>

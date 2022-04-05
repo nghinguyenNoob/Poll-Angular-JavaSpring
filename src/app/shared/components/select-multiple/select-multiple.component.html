@@ -1,0 +1,14 @@
+<mat-form-field export="fill" style="width: 100%;">
+    <mat-label> {{label}} </mat-label>
+    <mat-select (selectionChange)="onSelectionChange()" multiple placeholder="multiple select" [(value)]= 'selected' class="custom-scroll-bar">
+      <mat-select-trigger>
+        {{labelSelected}}
+        <span *ngIf="selected?.length > 1" class="example-additional-selection">
+          (+{{selected.length - 1}} {{selected?.length === 2 ? 'other' : 'others'}})
+        </span>
+      </mat-select-trigger>
+      <mat-option (click)='allSelected()' [value] = "CHOOSE_ALL" > Select All </mat-option>
+      <mat-option *ngFor="let item of values" [value]="this.item.categoryId"> {{this.item.categoryName}} </mat-option>
+    </mat-select>
+</mat-form-field>
+

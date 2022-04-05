@@ -1,0 +1,82 @@
+<div
+  class="container"
+  style="padding: 10px;"
+  fxLayoutGap="10px"
+  fxLayoutGap.xs="0"
+  fxLayout.gt-sm ="row "
+  fxLayout.lt-md = "column"
+>
+  <div
+    fxFlex="20"
+    fxFlex.sm="100"
+    fxFlex.xs="100"
+    fxFlex.md="30"
+    fxFlex.gt-lg="20"
+    style="
+      border: 1px solid #f0f0f0;
+      height: 100%;
+      padding-bottom: 5%;
+    "
+  >
+    <brc-list-filter
+      [buttonSubmit]="todoButtonSubmit"
+      [buttonReset]="todoButtonReset"
+      [labelImportance]="todoLabelImportance"
+      [labelFromDate]="todoLabelFromDate"
+      [labelToDate]="todoLabelToDate"
+      [labelCategory]="todoLabelCategory"
+      [placeholderSearch]="todoPlaceholderSearch"
+      [titleGroupCheckbox]="todoTitleGroupCheckbox"
+      [titleImportance]="todoTitleImportance"
+      [titleCategory]="todoTitleCategory"
+      [dataCheckbox]="todoDataCheckbox"
+      [dataCategory]="todoDataCategory"
+      [dataImportance]="todoDataImportance"
+      (valueFilter)="todoValueFilter($event)"
+    >
+    </brc-list-filter>
+  </div>
+
+  <div
+    fxFlex="80"
+    fxFlex.sm="100"
+    fxFlex.xs="100"
+    fxFlex.md="70"
+    fxFlex.gt-lg="80"
+  >
+    <div style="text-align: left; font-weight: 600;">
+      <h1>
+        <b>{{ configTodoList.title }}</b>
+      </h1>
+    </div>
+    <div style="margin: auto; display: flex; justify-content: flex-end;">
+      <button mat-raised-button color="primary"   data-test="submit-action" (click)="onClickBtnAdd()">
+        <mat-icon>add</mat-icon>{{ configTodoList.btnAdd }}
+      </button>
+    </div>
+    <div style="margin: auto; display: block; min-width: 100%;">
+      <brc-table
+        [columns]="todoColumns"
+        [dataSource]="todoDataSource"
+        [showRowSelection]="todoShowRowSelection"
+        (rowClicked)="handlerClickRow($event)"
+        (rowsSelected)="handlerSelectRow($event)"
+        (sort)="handlersort($event)"
+      >
+      </brc-table>
+    </div>
+    <div class="pagination-list" *ngIf="todoDataSource.length > 0">
+      <!-- <brc-pagination
+            [totalRecords] = "todoTotalRecords"
+            [recordsPerPage] = "todoRecordsPerPage"
+            (onPageChange) = "handleronPageChange($event)">
+        </brc-pagination> -->
+      <brc-mat-paginator
+        [total]="todoTotalRecords"
+        [pageSize]="todoRecordsPerPage"
+        [pageIndex]="todoPageIndex"
+        (onPageChange)="onPageEvent($event)"
+      ></brc-mat-paginator>
+    </div>
+  </div>
+</div>

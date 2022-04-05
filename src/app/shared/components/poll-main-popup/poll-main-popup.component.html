@@ -1,0 +1,23 @@
+<form #optionForm="ngForm">
+  <div class="modal" [style.display]="statusAddPopup">
+    <div class="modal-content">
+      <h1 style="text-align: center;">
+        Add Option
+      </h1>
+      <div style="display: flex; flex-direction: row;">
+        <div fxFlex="20">
+          <h3>Option name:</h3>
+        </div>
+        <div fxFlex="80">
+          <input type="text" name="optionName" [(ngModel)]="optionName" style="width: 100%; padding-left: 0px;">
+        </div>
+      </div>
+      <div class="row-button">
+        <button mat-raised-button (click)="onClickBtnSave(optionForm.value)" class="row-button-detail">
+           Add
+        </button>
+        <button mat-raised-button (click)="popupConfirmCancel()">Cancel</button>
+      </div>
+    </div>
+  </div>
+</form>

@@ -1,0 +1,11 @@
+<div class="pg-container">
+  <mat-paginator
+    appPagination
+    [length]="total"
+    [pageSize]="pageSize"
+    [pageIndex]="pageIndex"
+    [hidePageSize]="true"
+    (page)="onPageEvent($event)"
+  >
+  </mat-paginator>
+</div>

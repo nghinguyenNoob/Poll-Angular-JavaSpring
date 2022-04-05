@@ -1,0 +1,26 @@
+<!-- <div class="pop-up-add-excel"> -->
+  <brc-label [label]="labelExcel" class="header"></brc-label>
+  <!-- <form class="content" name="form" #f="ngForm"> -->
+    <div class="flex-container nowrap">
+      <mat-list >
+          <mat-list-item *ngFor="let column of columns" class="row-input">
+            {{column.title}}
+          </mat-list-item>   
+      </mat-list>
+      <mat-list style="width: 100%;">
+        <mat-list-item *ngFor="let row of rows" class="row-input">
+        <mat-form-field style="width: 100%;">
+          <input matInput value={{row.title}}>
+          </mat-form-field>
+        </mat-list-item>
+      </mat-list>
+  </div>
+    <div class="row-button">
+      <div class="row-button" style="width: 100%; margin: auto;">
+        <button mat-raised-button color="primary" class="row-button-detail" >Edit</button>
+        <button mat-raised-button>Cancel</button>
+      </div>
+    </div>
+
+  <!-- </form> -->
+<!-- </div> -->

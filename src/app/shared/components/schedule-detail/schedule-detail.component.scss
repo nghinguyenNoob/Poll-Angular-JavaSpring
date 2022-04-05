@@ -1,0 +1,155 @@
+.label {
+  color: #718093;
+  padding-left: 10px;
+  margin: 0px 1vw 0.2vw 2vw;
+}
+
+.form-info {
+  display: inline-flex;
+  line-height: 30px;
+  width: 100%;
+  height: 100%;
+  border-bottom: 1px solid #dfe6e9;
+  padding:  0.5vw 0px;
+}
+
+.form-info>p {
+  margin: 0;
+  font-size: 17px;
+}
+
+div.form-info>brc-label {
+  margin-right: 5px;
+  float: left;
+}
+
+.title {
+  background-color: #0097e6;
+  padding: 1vw;
+  display: inline-flex;
+}
+
+.title>p {
+  margin: 0;
+  color: black;
+  font-size: 20px;
+}
+
+.registration {
+  display: inline-flex;
+  background-color: #cce8f0;
+  padding: 0.8vw;
+}
+
+.registration>p {
+  margin: 0;
+  font-size: 18px;
+}
+
+.button {
+  margin: 1vw;
+}
+
+
+
+@media only screen and (max-width: 1280px) {
+  .label {
+    padding-left: 10px;
+  }
+  .form-info>p {
+    font-size: 15px;
+  }
+
+  .label {
+    max-width: 30% !important;
+  }
+
+  .registration>p {
+    font-size: 16px;
+    line-height: 2vw;
+  }
+
+  .registrationTitle {
+    max-width: 30% !important;
+  }
+
+  .title>p {
+    font-size: 17px;
+  }
+}
+
+
+@media only screen and (max-width: 836px) {
+
+  .form-info>p {
+    font-size: 11px;
+    line-height: 3vw;
+    padding: 1vw 0;
+  }
+  .label {
+    padding-left: 10px!important;
+    max-width: 30% !important;
+  }
+  .registration>p {
+    font-size: 12px;
+    line-height: 15px;
+  }
+  .registration{
+    padding: 1vw 0.8vw !important;
+  }
+  .registrationTitle {
+    padding-left: 10px;
+    max-width: 30% !important;
+  }
+  .title>p {
+    font-size: 13px;
+    max-width: 100%!important;
+  }
+}
+@media only screen and (max-width: 540px) {
+
+  .registration>p {
+    font-size: 11px;
+    line-height: 15px;
+  }
+  .registration{
+    padding: 1.5vw 0.8vw;
+  }
+  .form-info>p {
+    font-size: 10px;
+    line-height: 15px;
+    padding: 1vw 0 1vw 1vw;
+  }
+  .title>p {
+    font-size: 13px;
+    max-width: 100%!important;
+  }
+  .title{
+    padding-left: 13px;
+  }
+}
+@media only screen and (max-width: 360px) {
+  .label {
+    padding-left: 10px!important;
+    max-width: 40% !important;
+  }
+  .registration>p {
+    font-size: 10px;
+    line-height: 15px;
+  }
+  .registration{
+    padding: 1.5vw 0.8vw;
+  }
+  .registrationTitle{
+    padding: 0;
+  }
+  .form-info>p {
+    font-size: 9px;
+    line-height: 15px;
+    padding: 1vw 0 1vw 1vw;
+  }
+  .title>p {
+    font-size: 11px;
+    max-width: 100%!important;
+  }
+}

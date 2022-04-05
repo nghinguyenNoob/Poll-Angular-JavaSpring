@@ -1,0 +1,78 @@
+<div class="container-fluid">
+  <div fxLayout="row" fxLayout.xs="column">
+    <div fxFlex="20"></div>
+    <div fxFlex="60">
+      <div style="padding: 20px 10px 10px 10px;">
+        <div>
+          <div fxFlex="10">
+            <button class="btn-refer" (click)="backScreen()">
+              <mat-icon title="Back Screen Option">assignment_return</mat-icon>
+            </button>
+          </div>
+          <div fxFlex="80" style="text-align: center; font-weight: 600;">
+            <h1>
+              <b>{{ titlePoll}}</b>
+            </h1>
+          </div>
+          <div fxFlex="10"></div>
+        </div>
+        <hr />
+        <div>
+          <div fxFlex="20"><b>{{labelQuestion}}</b></div>
+          <div fxFlex="80">{{question}}</div>
+        </div>
+        <br>
+
+        <hr />
+        <div >
+          <div fxFlex="20"><b>{{labelExpiration}}</b></div>
+          <div fxFlex="80">{{expiration}}</div>
+        </div>
+        <br>
+
+        <hr />
+        <div>
+          <div fxFlex="20"><b>{{labelResponse}}</b></div>
+          <div fxFlex="80">
+            <!--Start Response-->
+            <div *ngFor="let res of responses; index as i"  style="margin-bottom: 5px;">
+              <div fxFlex="100">
+                <input [type]="typeInput" name="selectOption{{i}}" [checked]="res.isSelectedUser" style="margin-right:10px;"
+                [(ngModel)]="select" (change)="changeSelect(res.optionId, $event)">{{res.optionName}}
+                <section class="example-section">
+                  <mat-progress-bar class="example-margin" [color]="color" [mode]="mode" [value]="res.proPercen"
+                    [bufferValue]="bufferValue">
+                  </mat-progress-bar>
+                </section>
+                <mat-icon *ngFor="let vote of res.voteBy" [title]="vote.voteByName">account_circle</mat-icon>
+                <button *ngIf="res.voteBy.length > 0" (click)="viewMoreVoteOption(res.optionId)" class="btn-refer" title="View more">
+                  <mat-icon>navigate_next</mat-icon>
+                </button>
+              </div>
+              <div style="margin-top: 7px;">
+                <span matBadge={{res.voteCount}} matBadgeOverlap="false"></span>
+                <mat-icon>play_circle_outline</mat-icon>
+              </div>
+            </div>
+            <!--End Response-->
+          </div>
+        </div>
+        <div>
+          <div fxFlex="20"></div>
+          <div fxFlex="80">
+            <div style="display: flex; flex-direction: row;">
+              <button class="btn-option" (click)="onClickAdd()"><mat-icon>add_box</mat-icon></button>
+              <label style="color: black; margin-top: 4px;">Add option</label>
+            </div>
+          </div>
+        </div>
+      </div>
+      <brc-poll-main-popup
+        [statusAddPopup]= "statusAddPopup"
+        (dataFormOption)="saveDataOption($event)"
+        (confirmCancel)="confirmCancel()"
+      ></brc-poll-main-popup>
+    </div>
+    <div fxFlex="20"></div>
+  </div>
+</div>

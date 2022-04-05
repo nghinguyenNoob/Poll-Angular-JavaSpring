@@ -1,0 +1,52 @@
+<div class="date-picker" style="position: relative;">
+    <div class="dateInput">
+
+        <input class="txtDate" (change)='onchange()' placeholder="YYYY / MM / DD" [(ngModel)]="value">
+        <button class="btnShow" #hidepicker  >
+            <mat-icon (click)="toggleMenu()">date_range</mat-icon>
+        </button>
+
+    </div>
+    <div class="picker"  [hidden]="!showed" #control  style="position: absolute; z-index: 10; background-color:#f1f2f6" >
+        <div class="picker-control" >
+            <!-- <button class="btnM" (click)='getMon();'>{{listMon[mon]}}</button> -->
+            <button class="btnMY" (click)='getMonth();'  >{{txtMonthYear}}</button>
+            <button class="btnN" #previous [disabled]='disableNext' (click)='next();'>
+                <mat-icon>keyboard_arrow_right</mat-icon>
+            </button>
+            <button class="btnP" #after [disabled]='disablePrevous' (click)='prevous();'>
+                <mat-icon>keyboard_arrow_left</mat-icon>
+            </button>
+        </div>
+        <div class="picker-content"  >
+            <button *ngFor='let item of listMonth; index as i;'  [class]="checkActive(i) ? 'btnM active' :'btnM'" (click)='chooseMonth(i);' #controlMonth>{{item}}</button>
+            <button *ngFor='let item of listYear' [class]="item == date.getFullYear() ? 'btnM active' : 'btnM'" (click)='chooseYear(item);' #controlYear>{{item}}</button>
+
+            <div *ngIf='listWeek.length > 1'>
+                <table>
+                    <tr>
+                        <th>Su</th>
+                        <th>Mo</th>
+                        <th>Tu</th>
+                        <th>We</th>
+                        <th>Th</th>
+                        <th>Fi</th>
+                        <th>Sa</th>
+                    </tr>
+                    <tr *ngFor='let item of listWeek'>
+                        <td *ngFor='let d of item'>
+                            <button *ngIf='d != 0' [class]="checkActive(d) ? 'btnD active' : 'btnD'" (click)='chooseDate(d);'>
+                                {{d}}
+                            </button>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td colspan="7">
+                            <button class="btnNow" (click)='getNow()'>Today</button>
+                        </td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>

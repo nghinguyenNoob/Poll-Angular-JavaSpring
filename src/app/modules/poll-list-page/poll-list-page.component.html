@@ -1,0 +1,16 @@
+<brc-poll-list
+    [pollColumns]="pollColumns"
+    [pollDataSource]="pollDataSource"
+    [pollShowButtonSelection]="pollShowButtonSelection"
+    [pollTotalRecords]="pollTotalRecords"
+    [pollRecordsPerPage]="pollRecordsPerPage"
+    [pollPageIndex]="pollPageIndex"
+    [configPollList]="configPollList"
+    [searchText]="searchText"
+    [placeholder]="placeholder"
+    (btnAddPoll)="pollAdd($event)"
+    (rowDetail)="rowDetail($event)"
+    (rowDelete)="rowDelete($event)"
+    (pageOnPageChange)="changePage($event)"
+    (onChangeSearch)="onChangeSearch($event)"
+></brc-poll-list>

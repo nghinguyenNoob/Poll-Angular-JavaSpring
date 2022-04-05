@@ -1,0 +1,9 @@
+{
+  "extends": "../tsconfig.json",
+  "compilerOptions": {
+    "outDir": "../out-tsc/server-spec",
+    "module": "commonjs",
+    "types": ["express", "multer", "jest", "node"]
+  },
+  "include": ["**/*.ts"]
+}

@@ -1,0 +1,14 @@
+<brc-poll-main
+    [question]="question" 
+    [labelQuestion]="labelQuestion" 
+    [expiration]="expiration" 
+    [labelExpiration]="labelExpiration" 
+    [labelResponse]="labelResponse"
+    [typeInput]="typeInput"
+    [titlePoll]="titlePoll"
+    [responses]="responses"
+    (addDataOption)="addDataOption($event)"
+    (changeVoteOption)="saveChange($event)"
+    (referOptionPollDetail)="viewMoreVoteOption($event)"
+    (backScreenPoll)="backScreenPoll()">
+</brc-poll-main>

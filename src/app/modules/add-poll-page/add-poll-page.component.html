@@ -1,0 +1,11 @@
+<div class="content">
+  <brc-add-poll 
+  [labelQuestion]="labelQuestion" 
+  [labelExpiration]="labelExpiration" 
+  [labelOption]="labelOption"
+  [labelAllowMultipleAnswer]="allowMultipleAnswer"
+  [buttonSubmit]="configButtonAdd"
+  (pollOptionFormData)="getOptionPoll($event)"
+  (pollFormData)="addPoll($event)">
+  </brc-add-poll>
+</div>

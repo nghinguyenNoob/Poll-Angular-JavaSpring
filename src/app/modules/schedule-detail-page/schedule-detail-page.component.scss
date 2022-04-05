@@ -1,0 +1,31 @@
+.detail {
+  margin: 30px 14%;
+}
+
+.header {
+  background-color: rgb(221, 235, 247);
+  padding-top: 1vw;
+  padding-bottom: 1vw;
+  padding-left: 20px;
+  font-size: 20px;
+
+}
+.header>div>a{
+  cursor: pointer;
+  color: rgb(0, 162, 255);
+  text-decoration: none;
+}
+.content {
+  margin: 0vw ;
+}
+@media only screen and (max-width: 1280px) {
+  .header {
+    font-size: 15px;
+  }
+}
+@media only screen and (max-width: 540px) {
+  .header {
+    font-size: 10px;
+    padding-left: 15px;
+  }
+}

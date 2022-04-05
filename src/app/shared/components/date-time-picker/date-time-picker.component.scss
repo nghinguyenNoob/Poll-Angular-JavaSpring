@@ -1,0 +1,17 @@
+.datetime {
+    width: 100%;
+    display: flex;
+    flex-wrap: nowrap;
+}
+
+.date {
+    width: 100%;
+    float: left;
+    margin: 0;
+}
+
+.time {
+    width: 47%;
+    float: left;
+    margin: 0;
+}

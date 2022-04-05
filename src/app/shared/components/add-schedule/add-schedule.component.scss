@@ -1,0 +1,93 @@
+* {
+  box-sizing: border-box;
+}
+
+.container {
+  padding: 1%;
+}
+
+.header {
+  padding: 10px;
+  margin: 10px;
+  margin-bottom: 40px;
+}
+
+.col-3 {
+  width: 21%;
+  display: inline-block;
+  margin: 10px;
+}
+
+.col-6 {
+  width: 47%;
+  display: inline-block;
+  margin: 10px;
+}
+
+.col-6-6 {
+  width: 45%;
+  display: inline-block;
+  margin: 10px;
+}
+
+.checkbox {
+  border-radius: 2px;
+  width: 18px;
+  height: 18px;
+}
+
+input[type="text"] {
+  width: 100%;
+}
+
+.buttonCheck {
+  float: right;
+}
+
+.buttonCancel,
+.buttonAdd {
+  float: right;
+}
+
+.buttonAdd {
+  margin-right: 30px;
+}
+
+.timeRepeat {
+  margin-bottom: 30px;
+}
+
+.right {
+  float: right;
+}
+
+@media (max-width: 900px) {
+  .col-6 {
+    width: 100%;
+    margin-left: 0px;
+  }
+
+  .startTimeNormal {
+    margin-bottom: 30px;
+    margin-left: 0px;
+  }
+
+  .startTimeRepeat {
+    margin-bottom: 50px;
+    margin-left: 0px;
+  }
+
+  .endTime {
+    margin-bottom: 30px;
+    margin-left: 0px;
+  }
+
+  .col-6-6 {
+    width: 100%;
+    margin-left: 0px;
+  }
+
+  .right {
+    float: initial;
+  }
+}

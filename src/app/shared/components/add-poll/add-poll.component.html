@@ -1,0 +1,67 @@
+<div class="filter-container">
+  <h1 style="font-weight: bold; text-align: center;">Create Poll</h1>
+  <hr />
+  <form #pollForm="ngForm">
+    <div>
+      <brc-label [label]="labelQuestion" class="filter-label" class="label"></brc-label>
+      <input name="question" [(ngModel)]="questionPoll" type="text" placeholder="_What's your poll question?"
+        style="width: 100%; padding: 6px 0px;">
+      <div *ngIf="submitted && !isQuestionRequired" style="color: red;"> Please input question poll!</div>
+    </div>
+    <br />
+    <div style="width: 100%;">
+      <brc-label [label]="labelExpiration" class="filter-label" class="label"></brc-label>
+      <div style="flex-direction: row;">
+        <!-- <input name="date" [(ngModel)]="dateExpiration" type="date">-->
+        <!-- <input name="time" [(ngModel)]="timeExpiration" type="time" style="margin-left: 5px;"> -->
+        <brc-datetime-picker (getDay)="getDay($event)" (getHour)="getHour($event)" (getMinute)="getMinute($event)"></brc-datetime-picker>
+      </div>
+      <div style="display: flex; flex-direction: row;">
+        <div style="width: 70%;">
+          <div *ngIf="submitted && !isDateRequired" style="color: red;">Please input day expiration!</div>
+          <div *ngIf="submitted && !isDateValid" style="color: red;">Please input day expiration not before day now!</div>
+        </div>
+        <div style="width: 20%">
+          <div *ngIf="submitted && !isTimeRequired" style="color: red; margin-left: auto;">Please input time expiration!</div>
+          <div *ngIf="submitted && !isTimeValid" style="color: red; margin-left: auto;">Please input time expiration not before time now!</div>
+        </div>
+      </div>
+    </div>
+    <br />
+    <div style="display: flex; flex-direction: row;">
+      <input type="checkbox" name="checkMultipleAnswers" [(ngModel)]="checkMultipleAnswers">
+      <brc-label [label]="labelAllowMultipleAnswer" class="filter-label"></brc-label>
+    </div>
+    <br />
+    <div>
+      <div style="display: flex; flex-direction: column; width: 100%;">
+        <brc-label [label]="labelOption" class="filter-label" class="label"></brc-label>
+        <div *ngFor="let op of option.controls; let i= index">
+          <div [formGroup]="op">
+            <div style="display: flex; flex-direction: row; margin-bottom: 10px;">
+              <input formControlName="optionName" placeholder="Option {{i+1}}" style="width: 100%;">
+              <div *ngIf="optionCount"><button type="button" (click)="clearOption(i)" class="btn-clear">
+                  <mat-icon>clear</mat-icon>
+                </button></div>
+            </div>
+            <div *ngIf="submitted">
+              <div *ngIf="op.value.optionName ==''" style="color: red;">Option name is required</div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div style="display: flex; flex-direction: row;">
+        <button type="button" class="btn-option" (click)="addOption()">
+          <mat-icon>add</mat-icon>
+        </button>
+        <label style="color: black; margin-top: 4px;">Add option</label>
+      </div>
+    </div>
+    <br />
+    <div>
+      <div style="width: 100%; margin: auto; text-align: center;">
+        <brc-button [configButton]="buttonSubmit" (click)="saveDataPoll(pollForm.value)"></brc-button>
+      </div>
+    </div>
+  </form>
+</div>

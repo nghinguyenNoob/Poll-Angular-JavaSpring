@@ -1,0 +1,42 @@
+:host {
+  display: flex;
+  justify-content: center;
+  height: 100%;
+  background-color: #dfe6e9;
+}
+
+.container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.mat-form-field {
+  width: 100%;
+  min-width: 2vw;
+}
+
+mat-card-title,
+mat-card-content {
+  display: flex;
+  justify-content: center;
+}
+
+mat-form-field {
+  margin: 10px 0px;
+}
+
+mat-card {
+  max-height: 50%;
+}
+
+.button {
+  display: flex;
+  justify-content: center;
+}
+
+input:focus {
+  outline: none;
+  border: none;
+  box-shadow: none;
+}

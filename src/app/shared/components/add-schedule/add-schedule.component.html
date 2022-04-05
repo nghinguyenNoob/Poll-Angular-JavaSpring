@@ -1,0 +1,214 @@
+<div class="container">
+  <div class="header">
+    <brc-label [label]="labelHeader"></brc-label>
+  </div>
+  <div class="typeRemind">
+    <mat-radio-group
+      aria-label="Select an option"
+      (change)="changeRadio()"
+      [color]="'primary'"
+      [(ngModel)]="repeat"
+    >
+      <div class="col-6">
+        <div class="col-6-6">
+          <mat-radio-button [value]="'normal'">Normal</mat-radio-button>
+        </div>
+        <div class="col-6-6 right">
+          <mat-radio-button [value]="'repeat'">Repeat</mat-radio-button>
+        </div>
+      </div>
+    </mat-radio-group>
+    <div style="width: 100%;">
+      <hr />
+    </div>
+  </div>
+  <div class="typeRepeat" *ngIf="showRepeat">
+    <mat-radio-group
+      aria-label="Select an option"
+      (change)="changeRadioRepeat()"
+      [color]="'primary'"
+      [(ngModel)]="typeRepeat"
+    >
+      <div class="col-6">
+        <div class="col-6-6">
+          <mat-radio-button [value]="'everyday'">Everyday</mat-radio-button>
+        </div>
+        <div class="col-6-6" style="margin: 0;">
+          <mat-radio-button [value]="'weekly'"></mat-radio-button>
+          <div style="width: 100%; display: inline-block;">
+            <brc-app-select
+              [label]="'Weekly'"
+              [data]="selectWeekly"
+              (getValue)="chooseWeekly($event)"
+            ></brc-app-select>
+          </div>
+        </div>
+      </div>
+      <div class="col-6">
+        <div class="col-6-6">
+          <mat-radio-button [value]="'monthly'"></mat-radio-button>
+          <div style="width: 100%; display: inline-block;">
+            <brc-app-select
+              [label]="'Monthly'"
+              [data]="selectMonthly"
+              (getValue)="chooseMonthly($event)"
+            ></brc-app-select>
+          </div>
+        </div>
+        <div class="col-6-6 right">
+          <brc-label [label]="labelExprices"></brc-label>
+          <div style="width: 100%; display: inline-block;">
+            <brc-date-picker
+              (getDate)="getRepeatDate($event)"
+            ></brc-date-picker>
+          </div>
+        </div>
+      </div>
+    </mat-radio-group>
+    <div style="width: 100%;">
+      <hr />
+    </div>
+  </div>
+  <div class="timeNormal" *ngIf="!showRepeat">
+    <div class="col-6">
+      <div class="col-6-6 dateStart">
+        <brc-label [label]="labelStartDate"></brc-label>
+        <brc-date-picker (getDate)="getStartDate($event)"></brc-date-picker>
+      </div>
+      <div class="col-6-6 startTimeNormal right">
+        <brc-label [label]="labelStartTime"></brc-label>
+        <brc-time-picker
+          (getHour)="getStartHour($event)"
+          (getMinute)="getStartMinute($event)"
+        ></brc-time-picker>
+      </div>
+    </div>
+    <div class="col-6">
+      <div class="col-6-6 dateEnd">
+        <brc-label [label]="labelExprices"></brc-label>
+        <brc-date-picker (getDate)="getEndDate($event)"></brc-date-picker>
+      </div>
+      <div class="col-6-6 endTime right">
+        <brc-label [label]="labelEndTime"></brc-label>
+        <brc-time-picker
+          (getHour)="getEndHour($event)"
+          (getMinute)="getEndMinute($event)"
+        ></brc-time-picker>
+      </div>
+    </div>
+  </div>
+  <div class="timeRepeat" *ngIf="showRepeat">
+    <div class="col-6">
+      <div class="col-6-6 startTimeRepeat">
+        <brc-label [label]="labelStartTime"></brc-label>
+        <brc-time-picker
+          (getHour)="getStartHourRepeat($event)"
+          (getMinute)="getStartMinuteRepeat($event)"
+        ></brc-time-picker>
+      </div>
+      <div class="col-6-6 right">
+        <brc-label [label]="labelEndTime"></brc-label>
+        <brc-time-picker
+          (getHour)="getEndHourRepeat($event)"
+          (getMinute)="getEndMinuteRepeat($event)"
+        ></brc-time-picker>
+      </div>
+    </div>
+  </div>
+  <div>
+    <div class="col-6">
+      <div class="col-6-6">
+        <brc-label [label]="labelTitle"></brc-label>
+        <input type="text" [(ngModel)]="titleSchedule" />
+      </div>
+      <div class="col-6-6 right">
+        <brc-label [label]="labelLocation"></brc-label>
+        <input type="text" [(ngModel)]="location" />
+      </div>
+    </div>
+    <div class="col-6">
+      <div class="col-6-6">
+        <brc-app-select
+          [label]="'Type schedule'"
+          [data]="selectTypeSchedule"
+          (getValue)="chooseTypeSchedule($event)"
+        ></brc-app-select>
+      </div>
+      <div class="col-6-6 right">
+        <brc-app-select
+          [data]="selectImportant"
+          [label]="'Important'"
+          (getValue)="chooseImportant($event)"
+        ></brc-app-select>
+      </div>
+    </div>
+  </div>
+  <div>
+    <div class="col-6">
+      <div>
+        <div class="col-6-6">
+          <brc-select-multiple-search
+            #selectedParticipant
+            [values]="selectUserIds"
+            [label]="'Username'"
+            (outputSelected)="choosePraticipant($event)"
+          >
+          </brc-select-multiple-search>
+        </div>
+        <div class="col-6-6 right">
+          <brc-button
+            class="buttonCheck"
+            [configButton]="buttonCheckTimePraticipant"
+            (click)="checkParticipant()"
+          ></brc-button>
+        </div>
+      </div>
+      <div style="margin-top: 10px;">
+        <input type="text" disabled [(ngModel)]="praticipantsString" />
+      </div>
+    </div>
+    <div class="col-6">
+      <brc-label [label]="labelDescription"></brc-label>
+      <brc-textarea
+        [row]="4"
+        [placeholder]="'What is important for people to know?'"
+        (value)="getDescription($event)"
+      ></brc-textarea>
+    </div>
+  </div>
+  <div>
+    <div class="col-6">
+      <div class="col-6-6">
+        <brc-select-multiple-search
+          #selectedEquipment
+          [values]="selectEquipment"
+          [label]="'Equipment'"
+          (outputSelected)="chooseEquipment($event)"
+        >
+        </brc-select-multiple-search>
+      </div>
+      <div class="col-6-6 right">
+        <brc-button
+          class="buttonCheck"
+          [configButton]="buttonCheckTimeEquipment"
+          (click)="checkEquipment()"
+        ></brc-button>
+      </div>
+      <div style="margin-top: 10px;">
+        <input type="text" disabled [(ngModel)]="equipmentsString" />
+      </div>
+    </div>
+    <div class="col-6">
+      <brc-button
+        class="buttonCancel"
+        [configButton]="buttonCancel"
+        (click)="cancel()"
+      ></brc-button>
+      <brc-button
+        class="buttonAdd"
+        [configButton]="buttonAdd"
+        (click)="submit()"
+      ></brc-button>
+    </div>
+  </div>
+</div>

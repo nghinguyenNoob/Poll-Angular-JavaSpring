@@ -1,0 +1,43 @@
+.textarea-container {
+  width: 100%;
+  height: 75%;
+}
+
+.textarea-container textarea {
+  width: calc(100% - 22px);
+  padding: 0;
+  resize: vertical;
+  padding-top: 5px;
+  padding-bottom: 5px;
+  padding-left: 10px;
+  padding-right: 10px;
+}
+
+/* width */
+.textarea-container ::-webkit-scrollbar {
+  width: 5px;
+  height: 5px;
+  cursor: default !important;
+}
+
+/* Track */
+.textarea-container ::-webkit-scrollbar-track {
+  box-shadow: inset 0 0 5px rgb(201, 201, 201);
+  // border-radius: 10px;
+}
+
+/* Handle */
+.textarea-container ::-webkit-scrollbar-thumb {
+  background: rgb(177, 177, 177);
+  border-radius: 10px;
+
+}
+
+/* Handle on hover */
+.textarea-container ::-webkit-scrollbar-thumb:hover {
+  background: #999999;
+}
+
+textarea {
+  height: 100%;
+}

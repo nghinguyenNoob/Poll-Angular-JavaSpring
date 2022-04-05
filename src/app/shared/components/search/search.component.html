@@ -1,0 +1,16 @@
+<div class="card">
+  <div class="input" style="position: relative;">
+    <input
+      #searchBox
+      class="form-control"
+      id="search-text"
+      aria-describedby="search-text"
+      name="search"
+      [(ngModel)]="searchText"
+      [placeholder]="placeholder"
+      autofocus
+      (change)="search(searchText)"
+    />
+    <mat-icon class="icon" style="position: absolute;">search</mat-icon>
+  </div>
+</div>

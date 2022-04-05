@@ -1,0 +1,246 @@
+<div
+  class="container"
+  fxLayout
+  fxLayout.xs="column"
+  fxLayout.sm="column"
+  fxLayoutAlign="center"
+  fxLayoutGap="10px"
+  fxLayoutGap.xs="0"
+  fxLayout.lg="row"
+>
+  <div
+    fxFlex="20"
+    fxFlex.sm="100"
+    fxFlex.xs="100"
+    fxFlex.md="30"
+    fxFlex.lg="20"
+    fxFlex.xl="20"
+  >
+    <ng-scrollbar
+      class="scroll-event"
+      thumbClass="white-scrollbars"
+      [visibility]="visibilityScrollNavBar"
+    >
+      <brc-expansion-filter-schedule
+          [buttonFilterSchedule]="buttonFilterSchedule"
+          [labelScheduleFilter]="labelScheduleFilter"
+          [placeholderFilterSchedule]="placeholderFilterSchedule"
+          [scheduleDataCategory]="scheduleDataCategory"
+          [scheduleDataImportance]="scheduleDataImportance"
+          (valueFilter)="scheduleValueFilter($event)"
+      ></brc-expansion-filter-schedule>
+      <div class="calendar-small">
+        <mat-calendar
+          #calendar
+          [selected]="selectedDate.date"
+          (selectedChange)="onSelect($event)"
+        ></mat-calendar>
+      </div>
+      <div class="event-today">
+        <h3>Event Categories</h3>
+        <mat-divider></mat-divider>
+        <mat-nav-list>
+          <mat-list-item
+            *ngFor="let cate of categoryEvent | async"
+            matTooltip="{{ cate.description }}"
+          >
+            <mat-checkbox
+              #checkBox
+              [value]="cate"
+              (change)="onClickCheckBox(checkBox)"
+              [checked]="checked"
+            >
+              <span
+                matLine
+                class="link-caption"
+                style="margin-left: 20px; font-weight: 500;"
+                >{{ cate.name }}
+                <span
+                  class="cal-event"
+                  [style.backgroundColor]="cate.colors?.primary"
+                  style="
+                    display: inline-block;
+                    padding: 5px;
+                    border-radius: 50%;
+                    margin-left: 10px;
+                  "
+                ></span>
+              </span>
+              <span
+                matLine
+                style="
+                  margin-left: 20px;
+                  font-weight: 300;
+                  font-size: small;
+                  white-space: nowrap;
+                  overflow: hidden;
+                  text-overflow: ellipsis;
+                  max-width: 200px;
+                "
+                >{{ cate.description }}</span
+              >
+            </mat-checkbox>
+          </mat-list-item>
+        </mat-nav-list>
+      </div>
+      <div class="event-today">
+        <h3>Event Today {{ today | date: "dd/MM/yyyy" }}</h3>
+        <mat-divider></mat-divider>
+        <mat-nav-list
+          *ngIf="(eventsToday | async).length > 0; else noEventToday"
+        >
+          <mat-list-item *ngFor="let eventToday of eventsToday | async">
+            <a matLine [routerLink]="['/schedule/detail', eventToday.id]">
+              <span
+                class="cal-event"
+                [style.backgroundColor]="eventToday.color?.primary"
+                style="
+                  display: inline-block;
+                  padding: 5px;
+                  border-radius: 50%;
+                  margin-right: 10px;
+                "
+              ></span>
+              <span class="link-caption" style="font-weight: 400;"
+                >{{ eventToday.title }}
+              </span>
+              <span
+                class="link-caption"
+                style="float: right; font-weight: 300; font-size: small;"
+                >{{ eventToday.start | date: "shortTime" }} -
+                {{ eventToday.end | date: "shortTime" }}</span
+              >
+            </a>
+          </mat-list-item>
+        </mat-nav-list>
+        <ng-template #noEventToday>
+          <mat-nav-list>
+            <mat-list-item>
+              <span class="cal-event" style="background-color: red;"></span>
+              <span class="link-caption" style="font-weight: 400;"
+                >No events today</span
+              >
+            </mat-list-item>
+          </mat-nav-list>
+        </ng-template>
+      </div>
+      <div class="event-today">
+        <h3>Tomorrow {{ tomorrow | date: "dd/MM/yyyy" }}</h3>
+        <mat-divider></mat-divider>
+        <mat-nav-list
+          *ngIf="(eventsTomorrow | async).length > 0; else noEventTomorrow"
+        >
+          <mat-list-item *ngFor="let eventTomorrow of eventsTomorrow | async">
+            <a matLine [routerLink]="['/schedule/detail', eventTomorrow.id]">
+              <span
+                class="cal-event"
+                [style.backgroundColor]="eventTomorrow.color?.primary"
+                style="
+                  display: inline-block;
+                  padding: 5px;
+                  border-radius: 50%;
+                  margin-right: 10px;
+                "
+              ></span>
+              <span class="link-caption" style="font-weight: 400;"
+                >{{ eventTomorrow.title }}
+              </span>
+              <span
+                class="link-caption"
+                style="float: right; font-weight: 300; font-size: small;"
+                >{{ eventTomorrow.start | date: "shortTime" }} -
+                {{ eventTomorrow.end | date: "shortTime" }}</span
+              >
+            </a>
+
+            <!-- <h4 matline> {{ link.info }} </h4> -->
+          </mat-list-item>
+        </mat-nav-list>
+        <ng-template #noEventTomorrow>
+          <mat-nav-list>
+            <mat-list-item>
+              <span class="link-caption" style="font-weight: 400;"
+                >No events</span
+              >
+            </mat-list-item>
+          </mat-nav-list>
+        </ng-template>
+      </div>
+      <div class="event-today">
+        <h3>
+          {{ nameAfterTomorrow }} {{ afterTomorrow | date: "dd/MM/yyyy" }}
+        </h3>
+        <mat-divider></mat-divider>
+        <mat-nav-list
+          *ngIf="(eventsAfterTomorrow | async).length > 0; else noEventAfterTmr"
+        >
+          <mat-list-item
+            *ngFor="let eventAfterTomorrow of eventsAfterTomorrow | async"
+          >
+            <a
+              matLine
+              [routerLink]="['/schedule/detail', eventAfterTomorrow.id]"
+            >
+              <span
+                class="cal-event"
+                [style.backgroundColor]="eventAfterTomorrow.color?.primary"
+                style="
+                  display: inline-block;
+                  padding: 5px;
+                  border-radius: 50%;
+                  margin-right: 10px;
+                "
+              ></span>
+              <span class="link-caption" style="font-weight: 400;"
+                >{{ eventAfterTomorrow.title }}
+              </span>
+              <span
+                class="link-caption"
+                style="float: right; font-weight: 300; font-size: small;"
+                >{{ eventAfterTomorrow.start | date: "shortTime" }} -
+                {{ eventAfterTomorrow.end | date: "shortTime" }}</span
+              >
+            </a>
+
+            <!-- <h4 matline> {{ link.info }} </h4> -->
+          </mat-list-item>
+        </mat-nav-list>
+        <ng-template #noEventAfterTmr>
+          <mat-nav-list>
+            <mat-list-item>
+              <span class="link-caption" style="font-weight: 400;"
+                >No events</span
+              >
+            </mat-list-item>
+          </mat-nav-list>
+        </ng-template>
+      </div>
+    </ng-scrollbar>
+  </div>
+
+  <div
+    fxFlex="80"
+    fxFlex.sm="100"
+    fxFlex.xs="100"
+    fxFlex.md="70"
+    fxFlex.lg="80"
+    fxFlex.xl="80"
+    class="disable-scrollbars"
+  >
+    <ng-scrollbar
+      class="scroll-event"
+      thumbClass="white-scrollbars"
+      [visibility]="visibilityScroll"
+      #scrollbarRef
+    >
+      <brc-calendar
+        [events$]="events"
+        [view]="calendarView"
+        (viewDateChange)="onMonthChange($event)"
+        [selectedDay]="selectedDate"
+        (onDayClick)="onDayClick($event)"
+        [scrollbar]="scrollbarRef"
+      ></brc-calendar>
+    </ng-scrollbar>
+  </div>
+</div>

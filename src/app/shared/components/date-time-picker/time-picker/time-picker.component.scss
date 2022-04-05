@@ -1,0 +1,180 @@
+* {
+    box-sizing: border-box;
+}
+
+// input,
+// textarea {
+//     margin: 0;
+//     padding-top: 11px;
+// }
+.time-input {
+    width: 100%;
+    margin-top: 1px;
+    display: flex;
+    flex-wrap: nowrap;
+}
+
+.mat-icon {
+    padding-top: 5px;
+    font-size: 20px;
+}
+
+button {
+    border: none;
+    border-radius: 5%;
+}
+
+// a {
+//     border: none;
+//     border-radius: 5%;
+//     background-color: white;
+// }
+.txtDate {
+    width: 100%;
+}
+
+// .btnShow :hover {
+//     cursor: pointer;
+// }
+// .mat-icon :hover {
+//     background: none;
+// }
+// .btnShow {
+//     max-width: 12%;
+//     min-width: 12%;
+//     float: right;
+//     padding: 2px;
+// }
+// .form-timepicker {
+//     width: 100%;
+// }
+// .form {
+//     max-height: 260px;
+// }
+.picker-time {
+    border-radius: 4px;
+    border: 1px solid #ccc;
+    float: left;
+    width: 100%;
+    background-color: #FAFCFF;
+    max-width: 100%;
+    padding-top: 4px;
+    min-width: 100%;
+    line-height: 28px;
+}
+
+.picker-hours {
+    width: 50%;
+    color: black;
+    float: left;
+    text-align: center;
+}
+
+.picker-hours ::-webkit-scrollbar {
+    display: none;
+}
+
+.picker-minutes ::-webkit-scrollbar {
+    display: none;
+}
+
+.picker-minutes {
+    width: 50%;
+    color: black;
+    float: left;
+    text-align: center;
+}
+
+.picker-hours ul {
+    border-bottom: 1px solid #ccc;
+    border-right: 1px solid #ccc;
+    border-radius: 4px;
+    height: 200px;
+    overflow: hidden;
+    padding: 0px;
+    margin: 0px;
+    border-top: none;
+}
+
+.picker-hours ul:hover {
+    overflow: auto;
+}
+
+.picker-hours ul li {
+    display: block;
+}
+
+.picker-hours ul li:hover,
+ul li:focus {
+    background-color: #e6f7ff;
+}
+
+// minute
+.picker-minutes ul {
+    border-bottom: 1px solid #ccc;
+    height: 200px;
+    overflow: hidden;
+    padding: 0px;
+    margin: 0px;
+    border-top: none;
+    // border-radius: 4px;
+    // border-left: 1px solid #6C6969;
+    // border-right: 1px solid #6C6969;
+}
+
+.picker-minutes ul:hover {
+    overflow: auto;
+}
+
+.picker-minutes ul li {
+    display: block;
+}
+
+.picker-minutes ul li:hover,
+ul li:focus {
+    background-color: #e6f7ff;
+}
+
+.picker-minutes ul li {
+    padding: 5px;
+    text-align: center;
+}
+
+.picker-hours ul li {
+    padding: 5px;
+    text-align: center;
+}
+
+// aaaaaaaaaaa
+.pagination ul,
+li {
+    height: 18%;
+    margin: 0;
+    padding: 0;
+}
+
+.control {
+    width: 100%;
+    padding-left: 2px;
+}
+
+.now-time {
+    margin: 5px;
+    width: 60%;
+    float: right;
+    border-radius: 4px;
+}
+
+.now-time button {
+    float: right;
+    border-radius: 10%;
+    background-color: white;
+    color: black;
+    border: 2px solid #4CAF50;
+    padding: 5px;
+}
+
+.now-time button:hover {
+    background-color: #4CAF50;
+    color: white;
+}

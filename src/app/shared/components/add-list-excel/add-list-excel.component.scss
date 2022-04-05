@@ -1,0 +1,32 @@
+.header {
+    text-align: center;
+}
+
+.row-button{
+    text-align: center;
+
+  }
+.row-button-detail{
+    margin:20px;
+}
+.row-input{
+    margin-top: 20px;
+} 
+
+.flex-container {
+    padding: 0;
+    margin: 0;
+    list-style: none;
+    -ms-box-orient: horizontal;
+    display: -webkit-box;
+    display: -moz-box;
+    display: -ms-flexbox;
+    display: -moz-flex;
+    display: -webkit-flex;
+    display: flex;
+  }
+
+  .nowrap  { 
+    -webkit-flex-wrap: nowrap;
+    flex-wrap: nowrap;
+  } 

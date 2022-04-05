@@ -1,0 +1,25 @@
+<div style="padding: 25px;">
+  <brc-label [label]="labelExcel" class="header"></brc-label>
+
+  <div style="margin: auto; display: flex; justify-content: flex-end;">
+    <button type="button" mat-raised-button color="primary" (click)="fileInput.click()">
+      <mat-icon>add</mat-icon> Import Template
+      <input #fileInput type="file" (change)="onFileInput($event)" style="display:none;"  accept=".csv, application/vnd.openxmlformats-officedocument.spreadsheetml.sheet, application/vnd.ms-excel" />
+    </button>
+
+    <button mat-raised-button color="basic" (click)="onClickBtnAdd()" style="margin-left: 10px">
+      <mat-icon>add</mat-icon> Export Template
+    </button>
+  </div>
+
+  <brc-table 
+  [columns]="notification_columns" 
+  [dataSource]="notification_dataSource"
+  [showRowSelection]="notification_showRowSelection" 
+  [showRowAction]="showRowAction" 
+  [showBtn]="showBtn" 
+  (rowsSelected)="handleSelectRow($event)"
+  (rowID)="handlerDetail($event)"
+  (sort)="handlesort($event)">
+  </brc-table>
+</div>

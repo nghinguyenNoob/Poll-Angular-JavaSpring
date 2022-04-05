@@ -1,0 +1,12 @@
+<span class="example-list-section">
+  <ul [attr.aria-label]="titleGroup + ' : '">
+    <li *ngFor="let data of checkboxField">
+      <brc-checkbox
+        [label]="data.label"
+        [isChecked]="data.checked"
+        [valueField]="data.value"
+        (getChange)="get($event)"
+      ></brc-checkbox>
+    </li>
+  </ul>
+</span>

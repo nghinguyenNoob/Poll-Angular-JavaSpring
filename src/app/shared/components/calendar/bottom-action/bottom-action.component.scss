@@ -1,0 +1,32 @@
+.bottom-sheet {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 50px;
+  background-color: #3f51b5;
+  padding: 15px 30px;
+}
+.bottom-sheet div {
+  flex: 1;
+  color: white;
+}
+button {
+  color: #ffffff !important;
+  margin-top: 10px;
+}
+button.change {
+  color: white !important;
+}
+.center {
+  vertical-align: middle;
+}
+.outer-div {
+  display: flex;
+  flex-direction: column;
+}
+.title {
+  font-weight: 500;
+}
+.subtitle {
+  font-weight: 300;
+}

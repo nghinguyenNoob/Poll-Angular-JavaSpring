@@ -1,0 +1,32 @@
+<mat-form-field export="fill" style="width: 100%;">
+  <mat-label> {{label}} </mat-label>
+  <div class="form">
+    <mat-select (selectionChange)="onSelectionChange()" multiple placeholder="multiple select" [(value)]='selected'
+      class="custom-scroll-bar" (openedChange)="openedChange($event)">
+      <div class="input-search">
+        <div class="input" style="position: relative;">
+
+          <input matInput #searchSelectInput (input)="onInputChange($event.target.value)" [placeholder]="placeholder" [(ngModel)]="searchText" autofocus>
+          <mat-icon *ngIf="search" style="position: absolute;" (click)="_reset(true)" type="button">close
+          </mat-icon>
+        </div>
+      </div>
+      <div class="select-box">
+        <div *ngIf="!search else loading">
+          <!-- <mat-option (click)='allSelected()' [value]="CHOOSE_ALL"> Select All </mat-option> -->
+          <mat-option *ngFor="let item of values" [value]="this.item.categoryId"> {{this.item.categoryName}}
+          </mat-option>
+        </div>
+        <div>
+          <ng-template #loading>
+            <div *ngIf="valuesSearch?.length ===0" style="margin: 10px;">
+              {{notFound}}
+            </div>
+            <mat-option *ngFor="let item of valuesSearch" [value]="this.item.categoryId"> {{this.item.categoryName}}
+            </mat-option>
+          </ng-template>
+        </div>
+      </div>
+    </mat-select>
+  </div>
+</mat-form-field>

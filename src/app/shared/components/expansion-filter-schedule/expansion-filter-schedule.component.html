@@ -1,0 +1,22 @@
+<mat-accordion>
+    <mat-expansion-panel>
+      <mat-expansion-panel-header>
+        <mat-panel-title>
+          {{scheduleFilterExpansionLabel.title}}
+        </mat-panel-title>
+        <mat-panel-description>
+          {{scheduleFilterExpansionLabel.description}}
+        </mat-panel-description>
+      </mat-expansion-panel-header>
+        <div style="display: block;">
+          <brc-schedule-filter style="font-size: small;"
+          [buttonFilterSchedule]="buttonFilterSchedule" 
+          [labelScheduleFilter]="labelScheduleFilter"
+          [placeholderFilterSchedule]="placeholderFilterSchedule" 
+          [dataCategory]="scheduleDataCategory"
+          [dataImportance]="scheduleDataImportance" 
+          (valueFilter)="scheduleValueFilter($event)">
+          </brc-schedule-filter>
+        </div>
+    </mat-expansion-panel>
+  </mat-accordion>

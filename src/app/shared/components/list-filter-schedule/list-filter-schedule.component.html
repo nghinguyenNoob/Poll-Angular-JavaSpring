@@ -1,0 +1,77 @@
+<div class="filter-container">
+  <form class="width_100">
+    <h1 class="" style="font-weight: bold; text-align: center;">Filter</h1>
+    <div class="search" style="width: 99%; margin-bottom: 20px; padding-top: 20px;">
+      <brc-search
+        [placeholder]="placeholderSearch"
+        [searchText]="valueSearch"
+        (textSearch)="textSearch($event)"
+        style="width: 100%;"
+      ></brc-search>
+    </div>
+    <div class="select" style="width: 100%;">
+      <div class="importance">
+        <brc-label [label]="labelImportance" class="filter-label"></brc-label>
+        <brc-app-select
+          [data]="dataImportance"
+          [label]="titleImportance"
+          [default]="valueImportance"
+          (getValue)="getValueImportance($event)"
+        ></brc-app-select>
+      </div>
+      <div class="category">
+        <brc-label [label]="labelCategory" class="filter-label"></brc-label>
+        <brc-select-multiple
+          [values]="dataCategory"
+          [label]="titleCategory"
+          (outputSelected)="outputSelected($event)"
+          style="width: 100%;"
+        >
+        </brc-select-multiple>
+      </div>
+    </div>
+    <div class="date-time" style="width: 100%;">
+      <div class="date" style="width: 100%;">
+        <brc-label
+          [label]="labelFromDate"
+          class="filter-label"
+          style="width: 100%; margin-bottom: 10px;"
+        ></brc-label>
+        <brc-datetime-picker
+          (getDay) = "getFromDate($event)"
+          (getHour) = "getFromHour($event)"
+          (getMinute) = "getFromMinute($event)"
+        ></brc-datetime-picker>
+      </div>
+      <div class="date">
+        <brc-label
+          [label]="labelToDate"
+          class="filter-label"
+          style="width: 100%; margin-bottom: 10px;"
+        ></brc-label>
+        <brc-datetime-picker
+          (getDay) = "getToDate($event)"
+          (getHour) = "getToHour($event)"
+          (getMinute) = "getToMinute($event)"
+        ></brc-datetime-picker>
+      </div>
+    </div>
+    <div class="checkbox" style="width: 100%;">
+      <brc-checkbox-new
+        [checkboxContent]="dataCheckbox"
+        (dataCheckBox)="getDataCheckBox($event)"
+      ></brc-checkbox-new>
+    </div>
+    <br />
+    <div class="button">
+      <div class="row-button" style="width: 100%; margin: auto;">
+        <brc-button
+          [configButton]="buttonSubmit"
+          (click)="onSubmit()"
+          data-test="submit-action"
+        ></brc-button>
+        <brc-button [configButton]="buttonReset" (click)="clear()"></brc-button>
+      </div>
+    </div>
+  </form>
+</div>

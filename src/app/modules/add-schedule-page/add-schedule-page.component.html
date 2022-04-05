@@ -1,0 +1,13 @@
+<div class="content">
+  <brc-add-schedule
+    [selectTypeSchedule]="selectTypeSchedule"
+    [selectImportant]="selectImportant"
+    [selectWeekly]="selectWeekly"
+    [selectMonthly]="selectMonthly"
+    [selectUserIds]="selectUserIds"
+    [selectEquipment]="selectEquipment"
+    (checkFreeTimeEquipment)="CheckFreeTimeEquipment($event)"
+    (addSubmit)="AddSchedule($event)"
+    (addCancel)="CancelSchedule($event)"
+  ></brc-add-schedule>
+</div>

@@ -1,0 +1,16 @@
+<div class="detail">
+  <div class="header">
+    <div>
+      <a (click)="btnClickEmt()">Back to Schedule List</a>
+    </div>
+  </div>
+  <div class="content">
+    <brc-schedule-detail
+      [typeCheck]="typeCheck"
+      [scheduleDetail]="scheduleDetail"
+      [scheduleTime]="scheduleTime"
+      [scheduleTimeRepeat]="scheduleTimeRepeat"
+      (btnClickEmt)="btnClickEmt()"
+    ></brc-schedule-detail>
+  </div>
+</div>

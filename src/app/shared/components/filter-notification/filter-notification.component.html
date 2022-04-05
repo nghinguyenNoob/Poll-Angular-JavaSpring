@@ -1,0 +1,59 @@
+<div fxLayout="column" [fxFlex]="100">
+  <div class="btnGroup" [fxFlex]="10">
+    <mat-button-toggle-group
+      class="buttonGroup"
+      fxLayout="row"
+      [fxFlex]="100"
+      #status
+      [(ngModel)]="valueFocus"
+    >
+      <mat-button-toggle
+        [value]="-1"
+        class="button-fil"
+        fxFlex="33"
+        fxLayoutAlign="center space-around"
+        (change)="handlerButton($event.value)"
+        >All
+      </mat-button-toggle>
+      <mat-button-toggle
+        [value]="1"
+        class="button-fil"
+        fxFlex="33"
+        fxLayoutAlign="center space-around"
+        (change)="handlerButton($event.value)"
+        >Readed
+      </mat-button-toggle>
+      <mat-button-toggle
+        [value]="0"
+        class="button-fil"
+        fxFlex="34"
+        fxLayoutAlign="center space-around"
+        (change)="handlerButton($event.value)"
+        >Unread
+      </mat-button-toggle>
+    </mat-button-toggle-group>
+  </div>
+  <div class="cateSelect" [fxFlex]="90">
+    <h2>{{ labelSelect }}</h2>
+    <mat-selection-list
+      #category
+      [multiple]="false"
+      [(ngModel)]="valueCategory"
+    >
+      <mat-list-option
+        [value]="0"
+        class="list-category"
+        (click)="handlerSelect('')"
+        [selected]="categorySelect"
+        >All
+      </mat-list-option>
+      <mat-list-option
+        *ngFor="let category of dataSelect"
+        [value]="category.eventName"
+        class="list-category"
+        (click)="handlerSelect(category.eventName)"
+        >{{ category.eventName }}</mat-list-option
+      >
+    </mat-selection-list>
+  </div>
+</div>
